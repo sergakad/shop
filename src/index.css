@@ -11,3 +11,102 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  padding: 0 20px;
+}
+
+.content {
+  min-height: calc(100vh - 64px - 70px);
+  padding: 20px 20px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+#pagin:hover {
+  background-color: #26a69a;
+}
+
+/*.btncard {*/
+/*  position: absolute;*/
+/*  bottom: 20px;*/
+/*  right: 20px;*/
+/*}*/
+/*.price {*/
+/*  position: absolute;*/
+/*  bottom: 20px;*/
+/*  left: 20px;*/
+/*}*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card-content {
+  flex-grow: 1;
+}
+.basket-bottom {
+  width: 70px;
+  height: 70px;
+  background-color: #26a69a;
+  border-radius: 50%;
+  padding: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  z-index: 6;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+.basket-bottom:hover{
+  background-color: #5dd5cb;
+  z-index: 3;
+}
+
+.windowBasket {
+  width: 600px;
+  height: auto;
+  min-height: 300px;
+  margin: 100px 100px;
+  background-color: #26a69a;
+  border-radius: 20px;
+  position: fixed;
+  top: 100px;
+  left: 20%;
+  z-index: 5;
+  padding: 20px;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+.closeBasket {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+#formBasket {
+  width: 560px;
+  min-height: 200px;
+  height: auto;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
+  top: 0;
+  padding: 10px;
+
+}
+h3 {
+  margin-top: 0px;
+  color: white;
+}
+.orderValue {
+  z-index: 6;
+  position: fixed;
+  bottom: 35px;
+  right: 28px;
+  color: white;
+}
+.order {
+  color: black;
+}
