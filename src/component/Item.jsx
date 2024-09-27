@@ -18,7 +18,7 @@ function Item (props) {
                     'name': props.name,
                     'price': props.price,
                 }
-                )}}>Купить</button>
+            )}}>Купить</button>
         </div>
 
     </div>

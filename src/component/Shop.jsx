@@ -13,7 +13,7 @@ function Shop() {
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const [displayBasket, setDisplayBasket] = useState(false);
     const [order, setOrder] = useState([]);
-    const [quantity, setQuantity] = useState(0);
+
 
     useEffect(() => {
         fetch(API_URL, {
@@ -65,14 +65,14 @@ function Shop() {
             const newOrder = order.map((orderItem, index)=>{
                 if (index === itemIndex) {
                     return {...orderItem,
-                                 quantity: orderItem.quantity + 1
-                        }
+                        quantity: orderItem.quantity + 1
+                    }
                 } else {return orderItem;}
             })
             setOrder(newOrder);
         }   else {
-                const newItem = {...item, quantity: 1};
-                setOrder([...order,newItem]);
+            const newItem = {...item, quantity: 1};
+            setOrder([...order,newItem]);
         }
     };
 
@@ -98,15 +98,15 @@ function Shop() {
 
     const orderDecrement = (item) => {
         if (item.quantity > 1) {
-        const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
-        const newOrder = order.map((orderItem, index)=>{
-            if (index === itemIndex) {
-                return {...orderItem,
-                    quantity: orderItem.quantity - 1
-                }
-            } else {return orderItem;}
-        })
-        setOrder(newOrder);
+            const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
+            const newOrder = order.map((orderItem, index)=>{
+                if (index === itemIndex) {
+                    return {...orderItem,
+                        quantity: orderItem.quantity - 1
+                    }
+                } else {return orderItem;}
+            })
+            setOrder(newOrder);
         } else {deleteToBasket(item);}
     }
 
@@ -126,10 +126,10 @@ function Shop() {
             }
 
             {!loading ? <Paginator
-                        paginate={paginate}
-                        paginateIncrement={paginateIncrement}
-                        paginateDecrement={paginateDecrement}
-                        currentPage={currentPage}
+                paginate={paginate}
+                paginateIncrement={paginateIncrement}
+                paginateDecrement={paginateDecrement}
+                currentPage={currentPage}
             /> : null
             }
             <div className='basket-bottom' onClick={showBasket}>
@@ -138,8 +138,8 @@ function Shop() {
                 </i>
             </div>
             { order.length ?
-            // <span className='orderValue'>{order.length}</span>
-            <span className='orderValue'>{order.length}</span>
+                // <span className='orderValue'>{order.length}</span>
+                <span className='orderValue'>{order.length}</span>
                 : null
             }
         </main>

@@ -1,15 +1,15 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 nav {
@@ -67,28 +67,32 @@ nav {
 }
 
 .windowBasket {
-  width: 600px;
-  height: auto;
-  min-height: 300px;
-  margin: 100px 100px;
+  /*width: 600px;*/
+  /*height: auto;*/
+  /*min-height: 300px;*/
+  /*margin: 100px 100px;*/
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rem;
+  max-width: 95%;
+
   background-color: #26a69a;
   border-radius: 20px;
-  position: fixed;
-  top: 100px;
-  left: 20%;
+
   z-index: 5;
   padding: 20px;
   box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 .closeBasket {
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
+  background-color: white;
+  color: black;
 }
 #formBasket {
-  width: 560px;
-  min-height: 200px;
-  height: auto;
   background-color: white;
   border-radius: 20px;
   position: relative;
@@ -109,4 +113,8 @@ h3 {
 }
 .order {
   color: black;
+  border-bottom: 1px #a1a1a1 solid;
+  margin-bottom: 1rem;
+  padding: 2px;
 }
+
