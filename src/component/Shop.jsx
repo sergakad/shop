@@ -22,15 +22,16 @@ function Shop() {
       },
     })
       .then((res) => res.json())
-      .then((data) => {})
       .then((data) => {
         setItems(data.shop);
+      })
+      .then((data) => {
         setLoading(false);
       });
   }, []);
 
-  const firstItemPage = lastItemPage - itemsPerPage;
   const lastItemPage = currentPage * itemsPerPage;
+  const firstItemPage = lastItemPage - itemsPerPage;
   const currentPageItems = items.slice(firstItemPage, lastItemPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

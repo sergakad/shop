@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 
 function Alert(props) {
+
+  
+
   useEffect(
     () => {
       const timerID = setTimeout(props.closeAlert, 2000);
