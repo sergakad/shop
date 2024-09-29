@@ -8,13 +8,13 @@ function Basket(props) {
         return order.order.map(order => {
             return <div className='order' id={order.id}>
                 <span>{order.name} </span>
-                <button className='btn btnControll waves-effect waves-light' onClick={()=>{props.orderDecrement({...order})}}>-</button>
-                <span> {order.quantity} </span>
-                <button className='btn btnControll waves-effect waves-light' onClick={()=>{props.orderIncrement({...order})}}>+</button>
-                <span> x {order.price}</span>
+                <a href="#!"><i className='basketControll small material-icons' onClick={()=>{props.orderDecrement({...order})}}>chevron_left</i></a>
+                <span> {order.quantity} шт. </span>
+                <a href="#!"><i className='basketControll small material-icons' onClick={()=>{props.orderIncrement({...order})}}>chevron_right</i></a>
+                <span> x {order.price} руб.</span>
                 <span> </span>
-                <span> = {order.price * order.quantity}</span>
-                <button className='btn btnControll waves-effect waves-light right' onClick={()=>{props.deleteToBasket({...order})}}>X</button>
+                <span> = {order.price * order.quantity} руб.</span>
+                <a href="#!"><i className='basketControll small material-icons right' onClick={()=>{props.deleteToBasket({...order})}}>close</i></a>
             </div>
         })
     }
@@ -24,9 +24,10 @@ function Basket(props) {
         <h3>Корзина</h3>
         <button className='closeBasket btncard btn ' onClick={props.showBasket}>Закрыть</button>
         <div id='formBasket'>
-            <PushOrder order={props.order}/>
-            <p style={{color:"black"}}>Общая стоимость: {totalPrice}</p>
+            <PushOrder order={props.order}/>   
         </div>
+        <p id = 'totalPrice'>Общая стоимость: {totalPrice} руб.</p>
+        <button className='arrange btncard btn ' >Оформить</button>
     </div>
 
 

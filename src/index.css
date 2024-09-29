@@ -1,15 +1,15 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    monospace;
 }
 
 nav {
@@ -26,8 +26,9 @@ nav {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
+
 #pagin:hover {
-  background-color: #26a69a;
+  background-color: #26a699;
 }
 
 /*.btncard {*/
@@ -45,9 +46,11 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
 .card-content {
   flex-grow: 1;
 }
+
 .basket-bottom {
   width: 70px;
   height: 70px;
@@ -59,12 +62,21 @@ nav {
   right: 20px;
   color: white;
   z-index: 6;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.basket-bottom:hover{
+
+.basket-bottom:hover {
   background-color: #5dd5cb;
   z-index: 3;
 }
+
+.basketControll {
+  color: #26a699
+}
+.basketControll:hover {
+  color: #025a51
+}
+
 
 .windowBasket {
   /*width: 600px;*/
@@ -83,11 +95,20 @@ nav {
 
   z-index: 5;
   padding: 20px;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: fade-in 250ms ease-in-out;
 }
+
 .closeBasket {
   position: absolute;
   top: 20px;
+  right: 20px;
+  background-color: white;
+  color: black;
+}
+.arrange {
+  position: absolute;
+  bottom: 20px;
   right: 20px;
   background-color: white;
   color: black;
@@ -96,14 +117,22 @@ nav {
   background-color: white;
   border-radius: 20px;
   position: relative;
-  top: 0;
   padding: 10px;
 
 }
+#totalPrice {
+  color: white;
+  /* font-weight: bold; */
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 h3 {
   margin-top: 0px;
   color: white;
 }
+
 .orderValue {
   z-index: 6;
   position: fixed;
@@ -111,10 +140,31 @@ h3 {
   right: 28px;
   color: white;
 }
+
 .order {
   color: black;
   border-bottom: 1px #a1a1a1 solid;
   margin-bottom: 1rem;
   padding: 2px;
 }
+
+#toast-container {
+  position: fixed;
+  bottom: 100px;
+  top: 750px;
+  right: 20px;
+  animation: fade-in 250ms ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  } 
+  to {
+      opacity: 1;
+      transform: translateY(0rem);
+  }
+}
+
 

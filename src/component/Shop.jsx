@@ -1,9 +1,10 @@
-import {API_URL, API_KEY} from './Config';
-import {Items} from "./Items";
-import {useState, useEffect} from "react";
-import {Paginator} from "./Paginator";
-import {Preloader} from "./Preloader";
-import {Basket} from "./Basket";
+import { API_URL, API_KEY } from './Config';
+import { Items } from "./Items";
+import { useState, useEffect } from "react";
+import { Paginator } from "./Paginator";
+import { Preloader } from "./Preloader";
+import { Basket } from "./Basket";
+import { Alert } from './Alert';
 
 function Shop() {
 
@@ -13,6 +14,7 @@ function Shop() {
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const [displayBasket, setDisplayBasket] = useState(false);
     const [order, setOrder] = useState([]);
+    const [alertName, setAlertName] = useState('');
 
 
     useEffect(() => {
@@ -62,18 +64,20 @@ function Shop() {
         // console.log(order.find(item => item.id === item.id)
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
         if (itemIndex !== -1) {
-            const newOrder = order.map((orderItem, index)=>{
+            const newOrder = order.map((orderItem, index) => {
                 if (index === itemIndex) {
-                    return {...orderItem,
+                    return {
+                        ...orderItem,
                         quantity: orderItem.quantity + 1
                     }
-                } else {return orderItem;}
+                } else { return orderItem; }
             })
             setOrder(newOrder);
-        }   else {
-            const newItem = {...item, quantity: 1};
-            setOrder([...order,newItem]);
+        } else {
+            const newItem = { ...item, quantity: 1 };
+            setOrder([...order, newItem]);
         }
+        setAlertName(item.name)
     };
 
     const deleteToBasket = (item) => {
@@ -85,12 +89,13 @@ function Shop() {
 
     const orderIncrement = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
-        const newOrder = order.map((orderItem, index)=>{
+        const newOrder = order.map((orderItem, index) => {
             if (index === itemIndex) {
-                return {...orderItem,
+                return {
+                    ...orderItem,
                     quantity: orderItem.quantity + 1
                 }
-            } else {return orderItem;}
+            } else { return orderItem; }
         })
         setOrder(newOrder);
 
@@ -99,32 +104,38 @@ function Shop() {
     const orderDecrement = (item) => {
         if (item.quantity > 1) {
             const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
-            const newOrder = order.map((orderItem, index)=>{
+            const newOrder = order.map((orderItem, index) => {
                 if (index === itemIndex) {
-                    return {...orderItem,
+                    return {
+                        ...orderItem,
                         quantity: orderItem.quantity - 1
                     }
-                } else {return orderItem;}
+                } else { return orderItem; }
             })
             setOrder(newOrder);
-        } else {deleteToBasket(item);}
+        } else { deleteToBasket(item); }
     }
 
+    const closeAlert=() => {
+        setAlertName('')
+
+    }
 
 
     return (
         <main className='container content'>
+            
             {loading ?
-                (<Preloader/>) : <Items items={currentPageItems} addToBasket={addToBasket} />
+                (<Preloader />) : <Items items={currentPageItems} addToBasket={addToBasket} />
             }
             {displayBasket ?
-                (<Basket order = {order}
-                         orderIncrement = {orderIncrement}
-                         orderDecrement = {orderDecrement}
-                         deleteToBasket = {deleteToBasket}
-                         showBasket={showBasket}/>) : null
+                (<Basket order={order}
+                    orderIncrement={orderIncrement}
+                    orderDecrement={orderDecrement}
+                    deleteToBasket={deleteToBasket}
+                    showBasket={showBasket} />) : null
             }
-
+            {alertName && <Alert name = {alertName} closeAlert = {closeAlert}/>}
             {!loading ? <Paginator
                 paginate={paginate}
                 paginateIncrement={paginateIncrement}
@@ -137,13 +148,14 @@ function Shop() {
                     <a className='basket-bottom' href="#!">shopping_cart</a>
                 </i>
             </div>
-            { order.length ?
+            {order.length ?
                 // <span className='orderValue'>{order.length}</span>
                 <span className='orderValue'>{order.length}</span>
                 : null
             }
         </main>
-    );
-}
+    )
 
-export {Shop}
+
+}
+export { Shop }
