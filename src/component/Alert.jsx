@@ -1,21 +1,23 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
-function Alert (props) {
+function Alert(props) {
+  useEffect(
+    () => {
+      const timerID = setTimeout(props.closeAlert, 2000);
 
-    useEffect(()=>{
-        const timerID = setTimeout(props.closeAlert, 2000)
-
-        return () => {
-            clearTimeout(timerID)
-        }
-    }, 
+      return () => {
+        clearTimeout(timerID);
+      };
+    },
     //eslint-disable-next-line
-    [props.name]) 
+    [props.name]
+  );
 
-    return  <div id = "toast-container">
-                <div className = 'toast rounded'>{props.name} добавлен в корзину</div>
-            </div>
-
+  return (
+    <div id="toast-container">
+      <div className="toast rounded">{props.name} добавлен в корзину</div>
+    </div>
+  );
 }
 
-export {Alert} 
+export { Alert };

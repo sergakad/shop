@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -71,12 +71,11 @@ nav {
 }
 
 .basketControll {
-  color: #26a699
+  color: #26a699;
 }
 .basketControll:hover {
-  color: #025a51
+  color: #025a51;
 }
-
 
 .windowBasket {
   /*width: 600px;*/
@@ -118,7 +117,6 @@ nav {
   border-radius: 20px;
   position: relative;
   padding: 10px;
-
 }
 #totalPrice {
   color: white;
@@ -160,11 +158,9 @@ h3 {
   from {
     opacity: 0;
     transform: translateY(2rem);
-  } 
+  }
   to {
-      opacity: 1;
-      transform: translateY(0rem);
+    opacity: 1;
+    transform: translateY(0rem);
   }
 }
-
-
