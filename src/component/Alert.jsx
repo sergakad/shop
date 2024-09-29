@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 function Alert(props) {
 
-  
+  const {name} = props;  
 
   useEffect(
     () => {
@@ -13,12 +13,12 @@ function Alert(props) {
       };
     },
     //eslint-disable-next-line
-    [props.name]
+    [name]
   );
 
   return (
     <div id="toast-container">
-      <div className="toast rounded">{props.name} добавлен в корзину</div>
+      <div className="toast rounded">{name} добавлен в корзину</div>
     </div>
   );
 }

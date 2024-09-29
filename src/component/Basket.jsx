@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function Basket(props) {
+  const {example} = useContext(ShopContext);
+  console.log(example)
+
   const totalPrice = props.order.reduce((sum, el) => {
     return sum + el.price * el.quantity;
   }, 0);
