@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { ShopContext } from "../context";
 
 function Basket(props) {
-  const {example} = useContext(ShopContext);
-  console.log(example)
+  const { example } = useContext(ShopContext);
+  console.log(example);
 
   const totalPrice = props.order.reduce((sum, el) => {
     return sum + el.price * el.quantity;
@@ -42,7 +42,7 @@ function Basket(props) {
             <i
               className="basketControll small material-icons right"
               onClick={() => {
-                props.deleteToBasket({ ...order });
+                props.deleteToBasket(order.id);
               }}
             >
               close

@@ -20,5 +20,13 @@ export const ContextProvider = ({ children }) => {
     dispatch({type: 'CLOSE_ALERT'})
   } 
 
+  value.deleteToBasket = (itemID) => {
+    dispatch({ type: 'DELETE_TO_BASKET', payload: {id: itemID}});
+  }
+
+  value.orderIncrement = (item) => {
+    dispatch({type: 'ORDER_INCREMENT', payload: item})
+  }
+
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };

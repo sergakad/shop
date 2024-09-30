@@ -79,10 +79,8 @@ function Shop() {
     setAlertName(item.name);
   };
 
-  const deleteToBasket = (item) => {
-    const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id);
-    const deleteItem = order.splice(itemIndex, 1);
-    const newOrder = order.filter((x) => !deleteItem.includes(x));
+  const deleteToBasket = (itemID) => {
+    const newOrder = order.filter((el) => el.id !== itemID);
     setOrder(newOrder);
   };
 
